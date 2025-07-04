@@ -1,14 +1,12 @@
 import { getPostContent } from '@/lib/blog-loader'
 import Link from 'next/link'
+interface PageProps {
+  params: { slug: string }
+}
 
-type Props = {
-  params: { slug: string };
-};
-
-
-export default async function BlogPostPage({ params }: Props) {
+export default async function BlogPostPage({ params }: PageProps) {
   try {
-    const post = await getPostContent(params.slug)
+    const post = await getPostContent(params.slug);
 
     return (
       <article>
@@ -26,9 +24,8 @@ export default async function BlogPostPage({ params }: Props) {
           </Link>
         </p>
       </article>
-    )
+    );
   } catch {
-  // sadece catch bloğu, parametre yok!
-}
-
+    return null;
+  }
 }
