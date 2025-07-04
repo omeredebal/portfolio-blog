@@ -1,10 +1,14 @@
-import { getPostContent } from '@/lib/blog-loader'
-import Link from 'next/link'
-interface PageProps {
-  params: { slug: string }
-}
+import { getPostContent } from '@/lib/blog-loader';
+import Link from 'next/link';
 
-export default async function BlogPostPage({ params }: PageProps) {
+// ✅ Doğrudan Next.js yapısına uygun şekilde tip veriyoruz
+type Props = {
+  params: {
+    slug: string;
+  };
+};
+
+export default async function BlogPostPage({ params }: Props) {
   try {
     const post = await getPostContent(params.slug);
 
@@ -14,10 +18,12 @@ export default async function BlogPostPage({ params }: PageProps) {
         <p className="text-gray-500 mb-6">
           Yayın tarihi: {new Date(post.date).toLocaleDateString('tr-TR')}
         </p>
+
         <div
           className="prose max-w-none"
           dangerouslySetInnerHTML={{ __html: post.contentHtml }}
         />
+
         <p className="mt-6">
           <Link href="/blog" className="text-sm text-blue-500 hover:underline">
             ← Tüm yazılara dön
@@ -25,7 +31,8 @@ export default async function BlogPostPage({ params }: PageProps) {
         </p>
       </article>
     );
-  } catch {
-    return null;
+  } catch (error) {
+    // ✳️ Hata alınırsa fallback
+    return <p>Yazı bulunamadı.</p>;
   }
 }
