@@ -15,7 +15,7 @@ export default function HomePage() {
     >
       <Image
         src="/images/Biometrik.jpg"
-        alt="Ömer Edebalıı"
+        alt="Ömer Edebalı"
         width={160}
         height={160}
         className="rounded-full border border-gray-700 mb-6"
@@ -37,7 +37,7 @@ export default function HomePage() {
 
       <div className="max-w-2xl mt-6 text-sm sm:text-base text-gray-300 px-2">
         <p>
-          İstanbul Sabahattin Zaim Üniversitesinde son sınıf Yazılım Mühendisliği öğrencisiyim. 
+          İstanbulll Sabahattin Zaim Üniversitesinde son sınıf Yazılım Mühendisliği öğrencisiyim. 
           Web programlama, mobil geliştirme, Unity, siber güvenlik, yapay zeka ve daha birçok konuda akademik bilgiye sahibim.
         </p>
         <p className="mt-4">
