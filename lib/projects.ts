@@ -15,7 +15,7 @@ export const projects: Project[] = [
   {
     id: 2,
     title: 'Todo Uygulaması',
-    description: 'React + TypeScript ile yapılmış basit bir görev takip uygulaması.',
+    description: 'React + TypeScript ile yapılmış görev takip uygulaması.',
     url: 'https://github.com/omeredebal/todo-app'
   }
 ]
