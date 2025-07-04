@@ -40,7 +40,7 @@ export default function ContactPage() {
       } else {
         setStatus('error');
       }
-    } catch (error) {
+    } catch (_error) {
       setStatus('error');
     }
   };
