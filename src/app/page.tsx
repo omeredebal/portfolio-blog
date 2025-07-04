@@ -50,12 +50,14 @@ export default function HomePage() {
           <FaLinkedin />
         </a>
         <a
-          href="/files/omeredebal-cv.pdf"
-          download
-          className="hover:text-white"
-        >
-          <MdOutlineFileDownload />
-        </a>
+  href="/files/omeredebal-cv.pdf"
+  download
+  title="CV'yi indir"
+  className="hover:text-white"
+>
+  <MdOutlineFileDownload />
+</a>
+
       </div>
 
       <Link
