@@ -4,7 +4,7 @@ export default function AboutPage() {
       <h1 className="text-3xl font-bold mb-6">Hakkımda</h1>
 
       <p className="mb-4 text-gray-300">
-        Merhaba, ben Ömer Edebalı. İstanbul Sabahattin Zaim Üniversitesi'nde son sınıf Yazılım Mühendisliği öğrencisiyim.
+        Merhaba, ben Ömer Edebalı. İstanbul Sabahattin Zaim Üniversitesi&#39;nde son sınıf Yazılım Mühendisliği öğrencisiyim.
         Üniversite hayatım boyunca birçok farklı alanda teknik bilgi edindim. Web programlama (ön yüz ve arka yüz),
         mobil uygulama geliştirme, Unity ile 3D modelleme, siber güvenlik, yapay zeka, makine öğrenimi, veri yapıları
         ve işletim sistemleri gibi konular üzerine akademik ve pratik çalışmalar yaptım.

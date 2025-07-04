@@ -1,5 +1,4 @@
 import { getPostContent } from '@/lib/blog-loader'
-import { notFound } from 'next/navigation'
 import Link from 'next/link'
 
 type Props = {
