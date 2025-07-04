@@ -1,70 +1,95 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
+import { useState } from 'react';
 
 export default function ContactPage() {
-  const [form, setForm] = useState({ name: '', email: '', message: '' })
-  const [status, setStatus] = useState<string | null>(null)
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState<'idle' | 'success' | 'error' | 'validating'>('idle');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value })
-  }
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    const res = await fetch('/api/contact', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(form)
-    })
+    e.preventDefault();
 
-    if (res.ok) {
-      setStatus('Mesaj başarıyla gönderildi.')
-      setForm({ name: '', email: '', message: '' })
-    } else {
-      setStatus('Gönderim başarısız oldu.')
+    // Basit doğrulama
+    if (!formData.name || !formData.email || !formData.message) {
+      setStatus('error');
+      return;
     }
-  }
+
+    // E-posta kontrolü
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setStatus('error');
+      return;
+    }
+
+    setStatus('validating');
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        setStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      setStatus('error');
+    }
+  };
 
   return (
-    <div>
-      <h2 className="text-2xl font-semibold mb-4">İletişim</h2>
-      <form onSubmit={handleSubmit} className="space-y-4 max-w-md">
+    <div className="max-w-xl mx-auto mt-12 px-4">
+      <h1 className="text-3xl font-bold mb-6 text-white text-center">İletişim</h1>
+
+      <form onSubmit={handleSubmit} className="space-y-4">
         <input
           type="text"
           name="name"
-          placeholder="Adınız"
-          value={form.name}
+          value={formData.name}
           onChange={handleChange}
-          className="w-full border p-2 rounded"
-          required
+          placeholder="Adınız"
+          className="w-full p-3 rounded bg-gray-800 text-white"
         />
         <input
           type="email"
           name="email"
-          placeholder="E-posta adresiniz"
-          value={form.email}
+          value={formData.email}
           onChange={handleChange}
-          className="w-full border p-2 rounded"
-          required
+          placeholder="E-posta adresiniz"
+          className="w-full p-3 rounded bg-gray-800 text-white"
         />
         <textarea
           name="message"
-          placeholder="Mesajınız"
-          value={form.message}
+          value={formData.message}
           onChange={handleChange}
-          className="w-full border p-2 rounded"
-          rows={4}
-          required
+          placeholder="Mesajınız"
+          rows={5}
+          className="w-full p-3 rounded bg-gray-800 text-white"
         />
+
         <button
           type="submit"
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+          disabled={status === 'validating'}
+          className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded transition w-full"
         >
           Gönder
         </button>
-        {status && <p className="text-sm text-green-600">{status}</p>}
+
+        {status === 'success' && (
+          <p className="text-green-400 text-sm text-center">Mesaj başarıyla gönderildi!</p>
+        )}
+        {status === 'error' && (
+          <p className="text-red-400 text-sm text-center">Lütfen tüm alanları doğru doldurun.</p>
+        )}
       </form>
     </div>
-  )
+  );
 }
