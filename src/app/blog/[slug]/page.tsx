@@ -1,7 +1,6 @@
 import { getPostContent } from '@/lib/blog-loader';
 import Link from 'next/link';
 
-// ✅ Doğrudan Next.js yapısına uygun şekilde tip veriyoruz
 type Props = {
   params: {
     slug: string;
@@ -32,6 +31,6 @@ export default async function BlogPostPage({ params }: Props) {
       </article>
     );
   } catch {
-  return <p>Yazı bulunamadı.</p>;
-}
+    return <p className="text-red-500">Yazı bulunamadı.</p>;
+  }
 }
