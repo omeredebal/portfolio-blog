@@ -31,8 +31,7 @@ export default async function BlogPostPage({ params }: Props) {
         </p>
       </article>
     );
-  } catch (error) {
-    // ✳️ Hata alınırsa fallback
-    return <p>Yazı bulunamadı.</p>;
-  }
+  } catch {
+  return <p>Yazı bulunamadı.</p>;
+}
 }
