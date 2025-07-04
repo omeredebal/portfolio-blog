@@ -4,7 +4,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Ömer’in Portföyü',
+  title: 'Ömer Edebalı',
   description: 'Projeler, makaleler ve iletişim',
 }
 

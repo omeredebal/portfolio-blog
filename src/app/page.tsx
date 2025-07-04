@@ -37,7 +37,7 @@ export default function HomePage() {
 
       <div className="max-w-2xl mt-6 text-sm sm:text-base text-gray-300 px-2">
         <p>
-          İstanbul Sabahattin Zaim Üniversitesi'nde son sınıf Yazılım Mühendisliği öğrencisiyim. 
+          İstanbul Sabahattin Zaim Üniversitesinde son sınıf Yazılım Mühendisliği öğrencisiyim. 
           Web programlama, mobil geliştirme, Unity, siber güvenlik, yapay zeka ve daha birçok konuda akademik bilgiye sahibim.
         </p>
         <p className="mt-4">

@@ -29,7 +29,7 @@ export default async function BlogPostPage({ params }: Props) {
         </p>
       </article>
     )
-  } catch (error) {
+  } catch (_error) {
     return notFound()
   }
 }
