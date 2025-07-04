@@ -1,11 +1,11 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import { MdOutlineFileDownload } from 'react-icons/md';
+import Link from 'next/link';
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center p-4 text-white">
+    <main className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 text-white text-center">
       <Image
         src="/images/Biometrik.jpg"
         alt="Ömer Edebalı"
@@ -15,57 +15,49 @@ export default function HomePage() {
         priority
       />
 
-      <h1 className="text-3xl font-bold text-center">Ömer Edebalı</h1>
-      <p className="text-center text-gray-400 mt-2">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">Ömer Edebalı</h1>
+      <p className="mt-2 text-sm sm:text-base text-gray-400">
         Yazılım Mühendisliği Öğrencisi · Siber Güvenlik Tutkulusu
       </p>
 
-      <div className="max-w-2xl mt-6 text-center text-sm text-gray-300">
+      <div className="max-w-2xl mt-6 text-sm sm:text-base text-gray-300 px-2">
         <p>
-          İstanbul Sabahattin Zaim Üniversitesi'nde son sınıf Yazılım Mühendisliği öğrencisiyim.
-          Web programlama, mobil geliştirme, Unity, siber güvenlik, yapay zeka ve daha birçok konuda
-          akademik bilgiye sahibim. Takım çalışması ve bireysel projelerle teknik becerilerimi sürekli geliştiriyorum.
+          İstanbul Sabahattin Zaim Üniversitesi'nde son sınıf Yazılım Mühendisliği öğrencisiyim. 
+          Web programlama, mobil geliştirme, Unity, siber güvenlik, yapay zeka ve daha birçok konuda akademik bilgiye sahibim.
+          Takım çalışması ve bireysel projelerle teknik becerilerimi sürekli geliştiriyorum.
         </p>
         <p className="mt-4">
-          Özellikle siber güvenlik alanına ilgi duyuyorum ve bu konuda uzmanlaşmayı hedefliyorum.
-          Yeni teknolojileri öğrenmek, araştırmak ve projeye dönüştürmek benim için bir tutkudur.
+          Özellikle siber güvenlik alanına ilgi duyuyorum ve bu konuda uzmanlaşmayı hedefliyorum. Yeni teknolojileri öğrenmek, 
+          araştırmak ve projeye dönüştürmek benim için bir tutkudur.
         </p>
       </div>
 
-      <div className="flex gap-4 mt-6 text-2xl text-gray-300">
+      <div className="mt-6 flex gap-4 items-center text-xl">
         <a
           href="https://github.com/omeredebal"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-white"
+          className="hover:text-blue-400 transition"
         >
           <FaGithub />
         </a>
         <a
-          href="https://www.linkedin.com/in/omeredebal/"
+          href="https://linkedin.com/in/omeredebal"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-white"
+          className="hover:text-blue-400 transition"
         >
           <FaLinkedin />
         </a>
         <a
-  href="/files/omeredebal-cv.pdf"
-  download
-  title="CV'yi indir"
-  className="hover:text-white"
->
-  <MdOutlineFileDownload />
-</a>
-
+          href="/files/omeredebal-cv.pdf"
+          download
+          title="CV'yi indir"
+          className="hover:text-blue-400 transition"
+        >
+          <MdOutlineFileDownload />
+        </a>
       </div>
-
-      <Link
-        href="/about"
-        className="mt-8 text-sm text-blue-400 underline hover:text-blue-300"
-      >
-        Daha fazla bilgi →
-      </Link>
     </main>
   );
 }
