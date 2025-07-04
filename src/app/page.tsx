@@ -1,9 +1,8 @@
 'use client';
 
 import Image from 'next/image';
-import { FaLinkedin, FaGithub } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaMedium } from 'react-icons/fa';
 import { MdOutlineFileDownload } from 'react-icons/md';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 export default function HomePage() {
@@ -52,6 +51,7 @@ export default function HomePage() {
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-blue-400 transition"
+          title="GitHub"
         >
           <FaGithub />
         </a>
@@ -60,8 +60,18 @@ export default function HomePage() {
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-blue-400 transition"
+          title="LinkedIn"
         >
           <FaLinkedin />
+        </a>
+        <a
+          href="https://medium.com/@omeredebal"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-blue-400 transition"
+          title="Medium"
+        >
+          <FaMedium />
         </a>
         <a
           href="/files/omeredebal-cv.pdf"
