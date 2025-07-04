@@ -2,10 +2,9 @@ import { getPostContent } from '@/lib/blog-loader'
 import Link from 'next/link'
 
 type Props = {
-  params: {
-    slug: string
-  }
-}
+  params: { slug: string };
+};
+
 
 export default async function BlogPostPage({ params }: Props) {
   try {
