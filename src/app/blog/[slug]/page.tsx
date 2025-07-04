@@ -1,20 +1,12 @@
-import { getPostContent, getAllPosts } from '@/lib/blog-loader';
+import { getPostContent } from '@/lib/blog-loader';
 import Link from 'next/link';
 
-// ✅ Next.js 15 için zorunlu static param fonksiyonu
-export async function generateStaticParams() {
-  const posts = await getAllPosts();
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
+// ✅ Next.js tipine uygun props
+interface BlogPostPageProps {
+  params: { slug: string };
 }
 
-// ✅ sayfa bileşeni
-export default async function BlogPostPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
   try {
     const post = await getPostContent(params.slug);
 
@@ -38,6 +30,6 @@ export default async function BlogPostPage({
       </article>
     );
   } catch {
-    return <p className="text-red-500">Yazı bulunamadı.</p>;
+    return <p>Yazı bulunamadı.</p>;
   }
 }
