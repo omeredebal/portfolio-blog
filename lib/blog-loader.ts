@@ -5,6 +5,12 @@ import { remark } from 'remark'
 import html from 'remark-html'
 
 const blogDirectory = path.join(process.cwd(), 'content/blog')
+export function getAllPosts() {
+  // Basit örnek: bu kısmı kendi markdown okuma sistemine göre özelleştir.
+  return [
+    { slug: 'ornek-yazi', title: 'Örnek Yazı', date: '2025-07-04', contentHtml: '<p>İçerik</p>' }
+  ];
+}
 
 export async function getPostContent(slug: string) {
   const filePath = path.join(blogDirectory, `${slug}.md`)
