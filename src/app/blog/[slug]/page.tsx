@@ -29,7 +29,8 @@ export default async function BlogPostPage({ params }: Props) {
         </p>
       </article>
     )
-  } catch (_error) {
-    return notFound()
-  }
+  } catch {
+  // sadece catch bloğu, parametre yok!
+}
+
 }

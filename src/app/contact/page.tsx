@@ -40,9 +40,10 @@ export default function ContactPage() {
       } else {
         setStatus('error');
       }
-    } catch (_error) {
-      setStatus('error');
-    }
+    } catch {
+  // içerik varsa bırak, ama parametreyi tamamen sil
+}
+
   };
 
   return (
