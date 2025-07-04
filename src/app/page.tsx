@@ -15,7 +15,7 @@ export default function HomePage() {
     >
       <Image
         src="/images/Biometrik.jpg"
-        alt="Ömer Edebalı"
+        alt="Ömer Edebalıı"
         width={160}
         height={160}
         className="rounded-full border border-gray-700 mb-6"
