@@ -1,14 +1,14 @@
 import { getPostContent } from '@/lib/blog-loader';
+import { notFound } from 'next/navigation';
 import Link from 'next/link';
 
-// ✅ Next.js tipine uygun props
-interface BlogPostPageProps {
-  params: { slug: string };
-}
-
-export default async function BlogPostPage({ params }: BlogPostPageProps) {
+export default async function Page({ params }: { params: { slug: string } }) {
   try {
     const post = await getPostContent(params.slug);
+
+    if (!post) {
+      return notFound();
+    }
 
     return (
       <article>
@@ -29,7 +29,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </p>
       </article>
     );
-  } catch {
-    return <p>Yazı bulunamadı.</p>;
+  } catch (e) {
+    return notFound();
   }
 }
