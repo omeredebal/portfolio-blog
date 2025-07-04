@@ -2,12 +2,20 @@ import { getPostContent } from '@/lib/blog-loader';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 
-export default async function Page({ params }: { params: { slug: string } }) {
+interface BlogPostPageProps {
+  params: { slug: string };
+}
+
+export default function Page({ params }: BlogPostPageProps) {
+  return <BlogPost slug={params.slug} />;
+}
+
+async function BlogPost({ slug }: { slug: string }) {
   try {
-    const post = await getPostContent(params.slug);
+    const post = await getPostContent(slug);
 
     if (!post) {
-      return notFound();
+      notFound();
     }
 
     return (
@@ -30,6 +38,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
       </article>
     );
   } catch {
-    return notFound();
+    notFound();
   }
 }
