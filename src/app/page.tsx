@@ -1,11 +1,19 @@
+'use client';
+
 import Image from 'next/image';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import { MdOutlineFileDownload } from 'react-icons/md';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 text-white text-center">
+    <motion.main
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 text-white text-center"
+    >
       <Image
         src="/images/Biometrik.jpg"
         alt="Ömer Edebalı"
@@ -15,7 +23,15 @@ export default function HomePage() {
         priority
       />
 
-      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">Ömer Edebalı</h1>
+      <motion.h1
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3 }}
+        className="text-3xl sm:text-4xl md:text-5xl font-bold"
+      >
+        Ömer Edebalı
+      </motion.h1>
+
       <p className="mt-2 text-sm sm:text-base text-gray-400">
         Yazılım Mühendisliği Öğrencisi · Siber Güvenlik Tutkulusu
       </p>
@@ -24,11 +40,9 @@ export default function HomePage() {
         <p>
           İstanbul Sabahattin Zaim Üniversitesi'nde son sınıf Yazılım Mühendisliği öğrencisiyim. 
           Web programlama, mobil geliştirme, Unity, siber güvenlik, yapay zeka ve daha birçok konuda akademik bilgiye sahibim.
-          Takım çalışması ve bireysel projelerle teknik becerilerimi sürekli geliştiriyorum.
         </p>
         <p className="mt-4">
-          Özellikle siber güvenlik alanına ilgi duyuyorum ve bu konuda uzmanlaşmayı hedefliyorum. Yeni teknolojileri öğrenmek, 
-          araştırmak ve projeye dönüştürmek benim için bir tutkudur.
+          Özellikle siber güvenlik alanına ilgi duyuyorum ve bu konuda uzmanlaşmayı hedefliyorum. 
         </p>
       </div>
 
@@ -58,6 +72,6 @@ export default function HomePage() {
           <MdOutlineFileDownload />
         </a>
       </div>
-    </main>
+    </motion.main>
   );
 }
